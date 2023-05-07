@@ -31,7 +31,6 @@ const Component = () => {
           <UiBlock ui={ui} />
         </Suspense>
       </div>
-      <h3 className="text-xl font-bold mb-2">Code</h3>
       <div className="mb-6">
         <Suspense fallback={<div>Loading...</div>}>
           <CodeBlock code={code} />
