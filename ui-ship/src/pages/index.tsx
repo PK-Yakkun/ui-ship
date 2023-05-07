@@ -3,8 +3,10 @@ import type { NextPage } from "next";
 const Home: NextPage = () => {
   return (
     <section className="w-full">
-      <h2 className="text-2xl mb-4">Component Name</h2>
-      <div className="w-full p-8 border border-primary rounded-xl">aa</div>
+      <p className="mb-4">UIのビジュアルとソースコードをストックしています。</p>
+      <p>
+        個人用に作ったサイトですが、今後も更新していく予定ですのでご自由にご活用ください。
+      </p>
     </section>
   );
 };
