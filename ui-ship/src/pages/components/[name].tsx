@@ -19,10 +19,10 @@ const Component = () => {
         })
         .catch((error) => {
           console.error("Error loading component:", error);
-          setUi(<div>Component not found</div>);
+          router.push("/404");
         });
     }
-  }, [name]);
+  }, [name, router]);
 
   return (
     <Layout>
