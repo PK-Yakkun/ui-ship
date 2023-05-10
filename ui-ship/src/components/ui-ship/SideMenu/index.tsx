@@ -29,7 +29,9 @@ function SideMenu({ isOpen, setIsOpen }: SideMenuProps) {
       } md:translate-x-0 transition duration-300 ease-in-out`}
     >
       <div className="flex justify-between items-center mb-8 md:mb-2">
-        <h1 className="text-4xl font-bold md:mb-6">UI Ship</h1>
+        <h1 className="text-4xl font-bold md:mb-6">
+          <Link href="/">UI Ship</Link>
+        </h1>
         <div className="md:hidden">
           <CloseButton isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
