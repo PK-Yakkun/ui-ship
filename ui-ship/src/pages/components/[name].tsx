@@ -1,4 +1,5 @@
 import CodeBlock from "@/components/ui-ship/CodeBlock";
+import Layout from "@/components/ui-ship/Layout";
 import UiBlock from "@/components/ui-ship/UiBlock";
 import { useRouter } from "next/router";
 import React, { Suspense, useEffect, useState } from "react";
@@ -24,19 +25,21 @@ const Component = () => {
   }, [name]);
 
   return (
-    <div>
-      <h2 className="text-2xl font-bold mb-2">{name}</h2>
-      <div className="mb-6">
-        <Suspense fallback={<div>Loading...</div>}>
-          <UiBlock ui={ui} />
-        </Suspense>
+    <Layout>
+      <div>
+        <h2 className="text-2xl font-bold mb-2">{name}</h2>
+        <div className="mb-6">
+          <Suspense fallback={<div>Loading...</div>}>
+            <UiBlock ui={ui} />
+          </Suspense>
+        </div>
+        <div className="mb-6">
+          <Suspense fallback={<div>Loading...</div>}>
+            <CodeBlock code={code} />
+          </Suspense>
+        </div>
       </div>
-      <div className="mb-6">
-        <Suspense fallback={<div>Loading...</div>}>
-          <CodeBlock code={code} />
-        </Suspense>
-      </div>
-    </div>
+    </Layout>
   );
 };
 
