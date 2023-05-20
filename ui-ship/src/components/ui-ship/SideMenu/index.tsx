@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { componentList } from "@/lib/componentList";
+import { ComponentList } from "@/lib/componentList";
 import CloseButton from "../CloseButton";
 
+const componentList = new ComponentList();
 interface SideMenuProps {
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
@@ -14,8 +15,9 @@ function SideMenu({ isOpen, setIsOpen }: SideMenuProps) {
   const [searchWord, setSearchWord] = useState<string>("");
 
   useEffect(() => {
-    const sideMenuSearchResults = componentList.list.filter((componentName) =>
-      componentName.toLowerCase().includes(searchWord.toLowerCase())
+    const sideMenuSearchResults = componentList.sortedList.filter(
+      (componentName) =>
+        componentName.toLowerCase().includes(searchWord.toLowerCase())
     );
     sideMenuSearchResults.length
       ? setMenuItems(sideMenuSearchResults)
