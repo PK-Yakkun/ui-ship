@@ -2,7 +2,7 @@ export class ComponentList {
   private list: string[];
 
   constructor() {
-    this.list = ["Modal", "ScrollLine", "Button", "SvgIcon"].sort();
+    this.list = ["ScrollLine", "Button", "SvgIcon", "Dock"].sort();
   }
 
   public get sortedList(): string[] {
