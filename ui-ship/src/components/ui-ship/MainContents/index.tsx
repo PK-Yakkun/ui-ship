@@ -3,7 +3,7 @@ interface MainContentsProps {
 }
 
 function MainContents({ children }: MainContentsProps) {
-  return <div className="w-full p-6 md:p-10">{children}</div>;
+  return <div className="w-full p-6 md:p-12">{children}</div>;
 }
 
 export default MainContents;
