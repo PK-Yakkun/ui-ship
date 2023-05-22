@@ -8,14 +8,14 @@ const Component = () => {
   const router = useRouter();
   const { name } = router.query;
   const [ui, setUi] = useState<React.ReactNode>(null);
-  const [code, setCode] = useState<string>("");
+  const [codeList, setCodeList] = useState<string[]>([]);
 
   useEffect(() => {
     if (name) {
       import(`../../components/${name}`)
         .then((module) => {
           setUi(module.default);
-          setCode(module.code);
+          setCodeList(module.codeList);
         })
         .catch((error) => {
           console.error("Error loading component:", error);
@@ -26,18 +26,20 @@ const Component = () => {
 
   return (
     <Layout>
-      <div>
-        <h2 className="text-2xl font-bold mb-2">{name}</h2>
-        <div className="mb-6">
-          <Suspense fallback={<div>Loading...</div>}>
-            <UiBlock ui={ui} />
-          </Suspense>
-        </div>
-        <div className="mb-6">
-          <Suspense fallback={<div>Loading...</div>}>
-            <CodeBlock code={code} />
-          </Suspense>
-        </div>
+      <h2 className="text-2xl font-bold mb-2">{name}</h2>
+      <div className="mb-10">
+        <Suspense fallback={<div>Loading...</div>}>
+          <UiBlock ui={ui} />
+        </Suspense>
+      </div>
+      <div className="mb-6">
+        <Suspense fallback={<div>Loading...</div>}>
+          {codeList.map((code, index) => (
+            <div key={index} className="mb-6">
+              <CodeBlock code={code} />
+            </div>
+          ))}
+        </Suspense>
       </div>
     </Layout>
   );

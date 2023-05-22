@@ -11,7 +11,8 @@ function Dock() {
   );
 }
 
-export const code = `
+export const codeList = [
+  `
 function Dock() {
   return (
     sample
@@ -19,6 +20,7 @@ function Dock() {
 }
 
 export default Dock;
-`;
+`,
+];
 
 export default Dock;

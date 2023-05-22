@@ -5,7 +5,8 @@ function SvgIcon() {
   return <Image priority src={path} alt="download" />;
 }
 
-export const code = `
+export const codeList = [
+  `
 import Image from "next/image";
 import path from "/public/svg/download.svg";
 
@@ -14,6 +15,7 @@ function SvgIcon() {
 }
 
 export default SvgIcon;
-`;
+`,
+];
 
 export default SvgIcon;
